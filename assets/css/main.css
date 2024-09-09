@@ -864,7 +864,7 @@ section,
 
 .skills .progress-bar {
   width: 1px;
-  height: 10px;
+  height: 20px;
   transition: 0.9s;
   background-color: var(--accent-color);
 }
@@ -1474,3 +1474,109 @@ section,
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
+  a {
+    text-decoration: none;
+    color: white;
+    background-color: #18d26e; /* Custom color */
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  a:hover {
+    background-color: #155e45; /* Darken the color on hover */
+  }
+
+
+    /* Apply Poppins font to the entire body */
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Basic styles for layout */
+    .skills-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Two equal columns */
+      gap: 20px; /* Space between the columns */
+      margin-top: 10px;
+      padding: 20px;
+    }
+
+    .skill-item {
+      font-size: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400; /* Regular weight for skills */
+      margin-bottom: 5px;
+    }
+
+    /* Make the grid responsive for smaller screens */
+    @media (max-width: 768px) {
+      .skills-container {
+        grid-template-columns: 1fr; /* Stack items in a single column on smaller screens */
+      }
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .interests-section {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .interests-title {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+
+    .interests-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .interest-item {
+      background-color: #eaeaea;
+      border-radius: 8px;
+      padding: 15px;
+      width: calc(50% - 20px); /* Two items per row with gap */
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .interest-item:hover {
+      background-color: #d4d4d4;
+      transform: translateY(-5px);
+    }
+
+    .interest-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #18d26e;
+    }
+
+    .interest-text {
+      font-size: 16px;
+      font-weight: 400;
+      color: #333;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .interest-item {
+        width: calc(100% - 20px); /* Full width on smaller screens */
+      }
+    }
