@@ -87,57 +87,7 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* PHP Email Form Messages
-------------------------------*/
-.php-email-form .error-message {
-  display: none;
-  background: #df1529;
-  color: #ffffff;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
 
-.php-email-form .sent-message {
-  display: none;
-  color: #ffffff;
-  background: #059652;
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .loading {
-  display: none;
-  background: var(--surface-color);
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-}
-
-.php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid var(--accent-color);
-  border-top-color: var(--surface-color);
-  animation: php-email-form-loading 1s linear infinite;
-}
-
-@keyframes php-email-form-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 /*--------------------------------------------------------------
 # Global Header
@@ -184,6 +134,7 @@ h6 {
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
+    margin-left: auto; /* Moves the nav menu to the right */
   }
 
   .navmenu ul {
@@ -192,6 +143,7 @@ h6 {
     display: flex;
     list-style: none;
     align-items: center;
+    justify-content: flex-end; /* Aligns nav items to the right */
   }
 
   .navmenu li {
@@ -326,13 +278,21 @@ h6 {
   .navmenu {
     padding: 0;
     z-index: 9997;
+    /* Ensure the navmenu is positioned on the right */
+    position: fixed;
+    right: 0; /* Aligns the navmenu to the right */
+    top: 0;
+    bottom: 0; /* Full height */
+    width: 250px; /* Adjust the width as needed */
+    transform: translateX(100%); /* Initially hide the menu off-screen to the right */
+    transition: transform 0.3s ease; /* Smooth transition for sliding effect */
   }
 
   .navmenu ul {
-    display: none;
+    display: block;
     list-style: none;
-    position: absolute;
-    inset: 60px 20px 20px 20px;
+    position: relative; /* Change position to relative */
+    inset: 0; /* Stretch to fill the navmenu */
     padding: 10px 0;
     margin: 0;
     border-radius: 6px;
@@ -426,17 +386,10 @@ h6 {
   }
 
   .mobile-nav-active .navmenu {
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    background: rgba(33, 37, 41, 0.8);
-    transition: 0.3s;
-  }
-
-  .mobile-nav-active .navmenu>ul {
-    display: block;
+    transform: translateX(0); /* Slide in the menu when active */
   }
 }
+
 
 /*--------------------------------------------------------------
 # Global Footer
@@ -787,50 +740,6 @@ section,
   line-height: 0;
 }
 
-/*--------------------------------------------------------------
-# Stats Section
---------------------------------------------------------------*/
-.stats i {
-  background-color: var(--surface-color);
-  color: var(--accent-color);
-  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
-  width: 54px;
-  height: 54px;
-  font-size: 24px;
-  border-radius: 50px;
-  border: 2px solid var(--background-color);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-}
-
-.stats .stats-item {
-  background-color: var(--surface-color);
-  margin-top: -27px;
-  padding: 30px 30px 25px 30px;
-  width: 100%;
-  position: relative;
-  text-align: center;
-  box-shadow: 0px 2px 35px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  z-index: 0;
-}
-
-.stats .stats-item span {
-  font-size: 36px;
-  display: block;
-  font-weight: 700;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-}
-
-.stats .stats-item p {
-  padding: 0;
-  margin: 0;
-  font-family: var(--heading-font);
-  font-size: 16px;
-}
 
 /*--------------------------------------------------------------
 # Skills Section
@@ -909,91 +818,7 @@ section,
   color: var(--accent-color);
 }
 
-/*--------------------------------------------------------------
-# Testimonials Section
---------------------------------------------------------------*/
-.testimonials .testimonials-carousel,
-.testimonials .testimonials-slider {
-  overflow: hidden;
-}
 
-.testimonials .testimonial-item {
-  box-sizing: content-box;
-  min-height: 320px;
-}
-
-.testimonials .testimonial-item .testimonial-img {
-  width: 90px;
-  border-radius: 50%;
-  margin: -40px 0 0 40px;
-  position: relative;
-  z-index: 2;
-  border: 6px solid var(--background-color);
-}
-
-.testimonials .testimonial-item h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 10px 0 5px 45px;
-}
-
-.testimonials .testimonial-item h4 {
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin: 0 0 0 45px;
-}
-
-.testimonials .testimonial-item .quote-icon-left,
-.testimonials .testimonial-item .quote-icon-right {
-  color: color-mix(in srgb, var(--accent-color), transparent 50%);
-  font-size: 26px;
-  line-height: 0;
-}
-
-.testimonials .testimonial-item .quote-icon-left {
-  display: inline-block;
-  left: -5px;
-  position: relative;
-}
-
-.testimonials .testimonial-item .quote-icon-right {
-  display: inline-block;
-  right: -5px;
-  position: relative;
-  top: 10px;
-  transform: scale(-1, -1);
-}
-
-.testimonials .testimonial-item p {
-  font-style: italic;
-  margin: 0 15px 0 15px;
-  padding: 20px 20px 60px 20px;
-  background: var(--surface-color);
-  border-radius: 6px;
-  position: relative;
-  z-index: 1;
-}
-
-.testimonials .swiper-wrapper {
-  height: auto;
-}
-
-.testimonials .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: var(--background-color);
-  opacity: 1;
-  border: 1px solid var(--accent-color);
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
-}
 
 /*--------------------------------------------------------------
 # Resume Section
@@ -1054,149 +879,8 @@ section,
   border: 2px solid var(--accent-color);
 }
 
-/*--------------------------------------------------------------
-# Services Section
---------------------------------------------------------------*/
-.services .service-item {
-  background-color: var(--surface-color);
-  text-align: center;
-  padding: 80px 20px;
-  transition: all ease-in-out 0.3s;
-  height: 100%;
-}
 
-.services .service-item .icon {
-  margin: 0 auto;
-  width: 64px;
-  height: 64px;
-  background: var(--accent-color);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  transition: 0.3s;
-  transform-style: preserve-3d;
-}
 
-.services .service-item .icon i {
-  color: var(--contrast-color);
-  font-size: 28px;
-  transition: ease-in-out 0.3s;
-}
-
-.services .service-item .icon::before {
-  position: absolute;
-  content: "";
-  left: -8px;
-  top: -8px;
-  height: 100%;
-  width: 100%;
-  background: color-mix(in srgb, var(--accent-color), transparent 80%);
-  border-radius: 5px;
-  transition: all 0.3s ease-out 0s;
-  transform: translateZ(-1px);
-}
-
-.services .service-item h3 {
-  font-weight: 700;
-  margin: 10px 0 15px 0;
-  font-size: 22px;
-}
-
-.services .service-item p {
-  line-height: 24px;
-  font-size: 14px;
-  margin-bottom: 0;
-}
-
-.services .service-item:hover {
-  background: var(--accent-color);
-  border-color: var(--accent-color);
-}
-
-.services .service-item:hover .icon {
-  background: var(--surface-color);
-}
-
-.services .service-item:hover .icon i {
-  color: var(--accent-color);
-}
-
-.services .service-item:hover .icon::before {
-  background: color-mix(in srgb, var(--background-color), transparent 70%);
-}
-
-.services .service-item:hover h3,
-.services .service-item:hover p {
-  color: var(--contrast-color);
-}
-
-/*--------------------------------------------------------------
-# Service Details Section
---------------------------------------------------------------*/
-.service-details .services-list {
-  background-color: var(--surface-color);
-  padding: 10px 30px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  margin-bottom: 20px;
-}
-
-.service-details .services-list a {
-  display: block;
-  line-height: 1;
-  padding: 8px 0 8px 15px;
-  border-left: 3px solid color-mix(in srgb, var(--default-color), transparent 70%);
-  margin: 20px 0;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  transition: 0.3s;
-}
-
-.service-details .services-list a.active {
-  color: var(--heading-color);
-  font-weight: 700;
-  border-color: var(--accent-color);
-}
-
-.service-details .services-list a:hover {
-  border-color: var(--accent-color);
-}
-
-.service-details .services-img {
-  margin-bottom: 20px;
-}
-
-.service-details h3 {
-  font-size: 26px;
-  font-weight: 700;
-}
-
-.service-details h4 {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.service-details p {
-  font-size: 15px;
-}
-
-.service-details ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.service-details ul li {
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
-}
-
-.service-details ul i {
-  font-size: 20px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
 
 /*--------------------------------------------------------------
 # Portfolio Section
@@ -1378,54 +1062,7 @@ section,
   color: var(--accent-color);
 }
 
-.contact .php-email-form {
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  margin-top: 30px;
-}
 
-@media (max-width: 575px) {
-  .contact .php-email-form {
-    padding: 20px;
-  }
-}
-
-.contact .php-email-form input[type=text],
-.contact .php-email-form input[type=email],
-.contact .php-email-form textarea {
-  color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
-  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
-  font-size: 14px;
-  padding: 10px 15px;
-  box-shadow: none;
-  border-radius: 0;
-}
-
-.contact .php-email-form input[type=text]:focus,
-.contact .php-email-form input[type=email]:focus,
-.contact .php-email-form textarea:focus {
-  border-color: var(--accent-color);
-}
-
-.contact .php-email-form input[type=text]::placeholder,
-.contact .php-email-form input[type=email]::placeholder,
-.contact .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
-}
-
-.contact .php-email-form button[type=submit] {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-  border: 0;
-  padding: 10px 30px;
-  transition: 0.4s;
-  border-radius: 50px;
-}
-
-.contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
   a {
     text-decoration: none;
     color: white;
@@ -1446,89 +1083,115 @@ section,
     }
 
     /* Basic styles for layout */
-    .skills-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* Two equal columns */
-      gap: 20px; /* Space between the columns */
-      margin-top: 10px;
-      padding: 20px;
-    }
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 20px; /* Space between the columns */
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #1a1a1a; /* Dark background for container */
+  border-radius: 8px; /* Rounded corners for container */
+}
 
-    .skill-item {
-      font-size: 30px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 400; /* Regular weight for skills */
-      margin-bottom: 5px;
-    }
+.skill-item {
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif; /* Change font-family here */
+  font-weight: 500; /* Medium weight for skills */
+  color: #f4f4f4; /* Light color for text */
+  padding: 10px;
+  background-color: #333; /* Dark background for skill items */
+  border-radius: 8px; /* Rounded corners for skill items */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
 
-    /* Make the grid responsive for smaller screens */
-    @media (max-width: 768px) {
-      .skills-container {
-        grid-template-columns: 1fr; /* Stack items in a single column on smaller screens */
-      }
-    }
+.skill-item:hover {
+  background-color: #444; /* Slightly lighter background on hover */
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+/* Make the grid responsive for smaller screens */
+@media (max-width: 1024px) {
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: 1fr; /* Stack items in a single column on smaller screens */
+  }
+}
+
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Arial', sans-serif; /* Change font-family here */
+      background-color: #000; /* Set background color to black */
+      color: #fff; /* Set text color to white for better contrast */
       margin: 0;
       padding: 20px;
     }
-
+    
     .interests-section {
-      max-width: 800px;
+      max-width: 1200px; /* Increase max-width for more space */
       margin: auto;
-      background-color: #fff;
+      background-color: #1a1a1a; /* Set background color to a dark shade */
       border-radius: 8px;
       padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow for contrast */
     }
-
+    
     .interests-title {
       font-size: 28px;
       font-weight: 600;
       margin-bottom: 20px;
-      color: #333;
+      color: #fff; /* Set title color to white */
       text-align: center;
     }
-
+    
     .interests-list {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid; /* Change to grid layout */
+      grid-template-columns: repeat(4, 1fr); /* 4 items per row */
       gap: 20px;
-      justify-content: center;
+      justify-items: center; /* Center items within their grid cell */
     }
-
+    
     .interest-item {
-      background-color: #eaeaea;
+      background-color: #333; /* Dark background for items */
       border-radius: 8px;
       padding: 15px;
-      width: calc(50% - 20px); /* Two items per row with gap */
+      width: 100%; /* Full width of grid cell */
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Darker shadow */
       transition: background-color 0.3s, transform 0.3s;
     }
-
+    
     .interest-item:hover {
-      background-color: #d4d4d4;
+      background-color: #444; /* Slightly lighter on hover */
       transform: translateY(-5px);
     }
-
+    
     .interest-icon {
       font-size: 40px;
       margin-bottom: 10px;
-      color: #18d26e;
+      color: #18d26e; /* Icon color */
     }
-
+    
     .interest-text {
       font-size: 16px;
       font-weight: 400;
-      color: #333;
+      color: #fff; /* Set text color to white */
     }
-
+    
     /* Responsive design */
-    @media (max-width: 768px) {
-      .interest-item {
-        width: calc(100% - 20px); /* Full width on smaller screens */
+    @media (max-width: 1024px) {
+      .interests-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on medium screens */
       }
     }
+    
+    @media (max-width: 768px) {
+      .interests-list {
+        grid-template-columns: 1fr; /* 1 item per row on smaller screens */
+      }
+    }
+    
