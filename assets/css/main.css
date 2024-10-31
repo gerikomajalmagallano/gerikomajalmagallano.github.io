@@ -78,6 +78,20 @@ a:hover {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
   text-decoration: none;
 }
+/* Larger screens (Desktop) */
+@media (min-width: 1200px) {
+  /* Desktop styles */
+}
+
+/* Medium screens (Tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* Tablet styles */
+}
+
+/* Small screens (Phones) */
+@media (max-width: 767px) {
+  /* Mobile styles */
+}
 
 h1,
 h2,
@@ -264,7 +278,7 @@ h6 {
   }
 }
 
-/* Mobile Navigation */
+/* Mobile & Tablet Navigation */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
@@ -273,28 +287,26 @@ h6 {
     margin-right: 10px;
     cursor: pointer;
     transition: color 0.3s;
+    display: block;
   }
 
+  /* Navigation Menu for Mobile & Tablet */
   .navmenu {
     padding: 0;
-    z-index: 9997;
-    /* Ensure the navmenu is positioned on the right */
+    z-index: 9999;
     position: fixed;
     right: 0; /* Aligns the navmenu to the right */
     top: 0;
     bottom: 0; /* Full height */
-    width: 250px; /* Adjust the width as needed */
-    transform: translateX(
-      100%
-    ); /* Initially hide the menu off-screen to the right */
-    transition: transform 0.3s ease; /* Smooth transition for sliding effect */
+    width: 70%; /* Adjust the width for smaller screens */
+    transform: translateX(0); /* Initially hidden off-screen to the right */
+    transition: transform 0.3s ease; /* Smooth slide-in effect */
   }
 
   .navmenu ul {
     display: block;
     list-style: none;
-    position: relative; /* Change position to relative */
-    inset: 0; /* Stretch to fill the navmenu */
+    inset: 0;
     padding: 10px 0;
     margin: 0;
     border-radius: 6px;
@@ -354,6 +366,7 @@ h6 {
     transform: rotate(180deg);
   }
 
+  /* Dropdown for submenus */
   .navmenu .dropdown ul {
     position: static;
     display: none;
@@ -373,8 +386,10 @@ h6 {
     background-color: rgba(33, 37, 41, 0.03);
   }
 
+  /* Mobile nav active state */
   .mobile-nav-active {
     overflow: hidden;
+    color: var(--contrast-color);
   }
 
   .mobile-nav-active .mobile-nav-toggle {
@@ -389,6 +404,17 @@ h6 {
 
   .mobile-nav-active .navmenu {
     transform: translateX(0); /* Slide in the menu when active */
+  }
+}
+
+/* Adjustments for Smaller Mobile Screens */
+@media (max-width: 600px) {
+  .navmenu {
+    width: 85%; /* Smaller width for smaller screens */
+  }
+
+  .navmenu a {
+    font-size: 15px; /* Slightly smaller font for readability */
   }
 }
 
@@ -1196,5 +1222,38 @@ body {
 @media (max-width: 768px) {
   .interests-list {
     grid-template-columns: 1fr; /* 1 item per row on smaller screens */
+  } /* Larger screens (Desktop) */
+  @media (min-width: 1200px) {
+    /* Desktop styles */
   }
+
+  /* Medium screens (Tablets) */
+  @media (min-width: 768px) and (max-width: 1199px) {
+    /* Tablet styles */
+  }
+
+  /* Small screens (Phones) */
+  @media (max-width: 767px) {
+    /* Mobile styles */
+  }
+}
+
+/* Larger screens (Desktop) */
+@media (min-width: 1200px) {
+  /* Desktop styles */
+}
+
+/* Medium screens (Tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* Tablet styles */
+}
+
+/* Small screens (Phones) */
+@media (max-width: 767px) {
+  /* Mobile styles */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
